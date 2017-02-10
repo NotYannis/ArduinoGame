@@ -19,7 +19,6 @@ int totalGuards;
 
 
 void setup(){
-  arduino = new Arduino(this, Arduino.list()[0], 57600);
   println(Arduino.list());
 
   size(640, 640);
