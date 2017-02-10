@@ -1,13 +1,13 @@
 /*****************************************
 * ================== CODES ===============
-* 0 = black wall       | 1 = white floor
-* 2 = player start     | 3 = go right
-* 4 = go down          | 5 = go up
-* 6 = go left          | 7 = block guard
-* 8 = light vert door  | 9 = light hor door
-* 10 = dark vert door  | 11 = dark hor door
-* 12 = camera          |
-* 13 = vert bad guy    | 14 = hor bad guy 
+* 01 = black wall       | 01 = white floor
+* 02 = player start     | 03 = go right
+* 04 = go down          | 05 = go up
+* 06 = go left          | 07 = block guard
+* 08 = light vert door  | 09 = light hor door
+* 10 = dark vert door   | 11 = dark hor door
+* 12 = camera           |
+* 13 = vert bad guy     | 14 = hor bad guy 
 *
 *
 *
@@ -23,28 +23,29 @@ class Parser{
   
  void Parse(int id, int x, int y){
    switch(id){
-     case 0 :
+     case 00 :
         noStroke();
         fill(0);
         rect(x * _pixelUnit, y * _pixelUnit, _pixelUnit, _pixelUnit);
      break;
-     case 1 : //FLOOR
-     case 2 : //START
-     case 3 : //GO RIGHT
-     case 4 : //GO LEFT
-     case 5 : //GO UP
-     case 6 : //GO DOWN
+     case 01 : //FLOOR
+     case 02 : //START
+     case 03 : //GO RIGHT
+     case 04 : //GO LEFT
+     case 05 : //GO UP
+     case 06 : //GO DOWN
+     case 07 : //BLOCK GUARD
      case 13 : //HOR BAD GUY
      case 14 : //VERT BAD GUY
         DrawCell(255, 255, 255, _alpha, false, x, y);
      break;
-     case 8 : //LIGHT VERTICAL DOOR
+     case 80 : //LIGHT VERTICAL DOOR
        DrawCell(255, 255, 255, _alpha, false, x, y);
        stroke(255,255,255);
        fill(95, 24, 24);
        rect((x - 2) * _pixelUnit, y * _pixelUnit, _pixelUnit * 3 * (_alpha / 255) , _pixelUnit);
      break;
-     case 9 : //LIGHT HORIZONTAL DOOR
+     case 90 : //LIGHT HORIZONTAL DOOR
        DrawCell(255, 255, 255, _alpha, false, x, y);
        stroke(255,255,255);
        fill(95, 24, 24);

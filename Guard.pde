@@ -32,7 +32,7 @@ class Guard{
  void checkWalls(){   
    int nextCell = buffer[(int)cell.x + (int)dir.x][(int)cell.y + (int)dir.y];
    
-   if(nextCell == 0 || nextCell == 7 || nextCell == 8 || nextCell == 9){
+   if(nextCell == 00 || nextCell == 07 || nextCell == 80 || nextCell == 90){
      vel.x *= -1;
      vel.y *= -1;
      dir.x *= -1;

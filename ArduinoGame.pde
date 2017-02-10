@@ -73,7 +73,7 @@ void loadData(){
   for(int x = 0; x < table.getColumnCount(); ++x){
     for(int y = 0; y < table.getRowCount(); ++y){
       buffer[x][y] = table.getInt(y, x);
-      if(table.getInt(y, x) == 2){     
+      if(table.getInt(y, x) == 02){     
         player.pos = new PVector(x * _pixelUnit + _pixelUnit/2, y * _pixelUnit + _pixelUnit/2);
       }
       if(table.getInt(y, x) == 14){
