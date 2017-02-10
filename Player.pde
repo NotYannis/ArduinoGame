@@ -27,16 +27,27 @@ class Player{
     if(((int)pos.x % _pixelUnit == _pixelUnit/2) && ((int)pos.y % _pixelUnit == _pixelUnit/2)){
       int x = (int)getPixelToUnit(pos.x);
       int y = (int)getPixelToUnit(pos.y);
-
-      if(buffer[x][y] == 4){
-        vel = new PVector(0, _playerSpeed);
+      
+      switch(buffer[x][y]){
+        case 3 : //RIGHT
+          vel = new PVector(_playerSpeed, 0);
+          break;
+        case 4 : //DOWN
+          vel = new PVector(0, _playerSpeed);
+          break;
+        case 5 : //UP
+          vel = new PVector(0, -_playerSpeed);
+          break;
+        case 6 : //LEFT
+          vel = new PVector(-_playerSpeed, 0);
+          break;
       }
 
-      //println(buffer(y));
-      if(buffer[x + 1][y + 1] == 8 && _alpha > 0){
+
+      if((buffer[x + 1][y + 1] == 8 || buffer[x + 1][y + 1] == 9) && _alpha > 0){
         canMove = false;
       }
-      if(buffer[x + 1][y + 1] == 8 && _alpha == _alpha % _lightSpeed){
+      if((buffer[x + 1][y + 1] == 8 || buffer[x + 1][y + 1] == 9) && _alpha == _alpha % _lightSpeed){
         canMove = true;
       }
       
