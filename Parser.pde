@@ -1,6 +1,6 @@
 /*****************************************
 * ================== CODES ===============
-* 01 = black wall       | 01 = white floor
+* 00 = black wall       | 01 = white floor
 * 02 = player start     | 03 = go right
 * 04 = go down          | 05 = go up
 * 06 = go left          | 07 = block guard
