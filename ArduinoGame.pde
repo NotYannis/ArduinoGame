@@ -1,6 +1,8 @@
 import processing.serial.*;
 import cc.arduino.*;
 
+Arduino dudu;
+
 int _pixelUnit = 20; //The size of a square on the grid
 float _alpha = 255; //"Luminosity"
 int _lightSpeed = 10; //Speed of the light change
@@ -13,14 +15,13 @@ Guard[] guards;
 Player player;
 Parser parser;
 
-
 boolean lightOn = true;
 int totalGuards;
 
 
 void setup(){
-  //arduino = new Arduino(this, Arduino.list()[0], 57600);
-  println(Arduino.list());
+  dudu = new Arduino(this, Arduino.list()[1], 57600);
+  println(dudu);
 
   size(640, 640);
   parser = new Parser();
@@ -46,12 +47,14 @@ void draw(){
     guards[i].Draw();
   }
   
-  if(lightOn){
+  println(dudu.analogRead(1));
+  
+  if(dudu.analogRead(1) > 700){
     if(_alpha < 255){
       _alpha += _lightSpeed;
     }
   }
-  if(!lightOn){
+  else{
     if(_alpha > 0)
       _alpha -= _lightSpeed;
   }
